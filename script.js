@@ -1,12 +1,10 @@
-//your code here
-const textElement = document.querySelector("#evaluatedText");
-const h3Element = document.querySelector("#wordCount");
+const evaluatedText = document.getElementById('evaluatedText');
+const wordCount = document.getElementById('wordCount');
 
-function handleInput(e) {
-	const match =sentence.match(/\S+/ig);
-	const count = math.length ? match.length : 0;
-	h3Element.textContent = count;
-}
-textElement.addEventListener('input', handleInput)
-
-
+evaluatedText.addEventListener('input', function() {
+    const text = evaluatedText.value;
+    const words = text.split(' ').filter(function(word) {
+        return word.length > 0;
+    });
+    wordCount.textContent = words.length;
+});
